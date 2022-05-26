@@ -102,13 +102,13 @@ async def on_message(message):
             if len(players) >= 3:
                 game_started = True
                 channel = message.channel
+                await start_game()
                 await message.add_reaction('\N{THUMBS UP SIGN}')
             else:
                 await message.channel.send("Not enough players to start the game.")
 
         elif arguments[1] == "end":
-            game_started = False
-            players = []
+            end_game()
             await message.add_reaction('\N{THUMBS UP SIGN}')
 
         elif arguments[1] == "list":
